@@ -1,16 +1,16 @@
 [
   {
       "id": 100,
-      "nazwa": "ryż",
-      "ilość": 3,
-      "jednostka": "kilogramy",
-      "kategoria": "suchy prowiant"
+      "name": "ryż",
+      "quantity": 3,
+      "unit": "kilogramy",
+      "genre": "suchy prowiant"
   },
   {
     "id": 101,
-    "nazwa": "sok porzeczkowy",
-    "ilość": 15,
-    "jednostka": "litrów",
-    "kategoria": "napoje"
+    "name": "sok porzeczkowy",
+    "quantity": 15,
+    "unit": "litrów",
+    "genre": "napoje"
   }
 ]

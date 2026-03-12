@@ -68,8 +68,9 @@ class MainActivity : AppCompatActivity() {
                 productList.addAll(loadedList)
                 adapter.notifyDataSetChanged()
             }else {
-                val startFile = File("res/raw/pantry.json")
-                val jsonString = startFile.readText()
+                val inputStream = resources.openRawResource(R.raw.pantry)
+                val jsonString = inputStream.bufferedReader().use { it.readText() }
+
                 val json = Json { ignoreUnknownKeys = true }
                 val loadedList = json.decodeFromString<List<Product>>(jsonString)
 

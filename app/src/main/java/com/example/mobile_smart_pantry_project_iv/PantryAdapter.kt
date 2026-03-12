@@ -1,6 +1,7 @@
 package com.example.mobile_smart_pantry_project_iv
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,6 +67,11 @@ class PantryAdapter(
         }
 
 
+        if(product!!.quantity<3){
+            binding.root.setBackgroundColor(Color.RED)
+        }else{
+            binding.root.setBackgroundColor(Color.WHITE)
+        }
 
 
         return binding.root

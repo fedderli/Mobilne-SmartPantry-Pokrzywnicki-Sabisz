@@ -96,4 +96,22 @@ class PantryAdapter(
 
         notifyDataSetChanged()
     }
+
+    fun filterByCategory(category: String ){
+        filteredProducts.clear()
+
+
+        if(category.isEmpty()){
+            filteredProducts.addAll(products)
+        }else{
+            for(product in products){
+                if(product.category.equals(category,ignoreCase = true)){
+                    filteredProducts.add(product)
+                }
+            }
+        }
+
+        notifyDataSetChanged()
+    }
+
 }

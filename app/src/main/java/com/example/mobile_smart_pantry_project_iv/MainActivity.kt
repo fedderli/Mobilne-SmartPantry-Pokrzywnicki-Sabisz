@@ -59,6 +59,18 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+
+        binding.btnAll.setOnClickListener {
+            adapter.filter("")
+        }
+
+        binding.btnFood.setOnClickListener {
+            adapter.filterByCategory("Food")
+        }
+        binding.btnTools.setOnClickListener {
+            adapter.filterByCategory("Tools")
+        }
+
     }
 
      fun saveProductsFromJsonFile(){

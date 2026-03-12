@@ -11,11 +11,12 @@
         android:layout_width="85dp"
         android:layout_height="86dp"
         android:layout_marginEnd="14dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -53,6 +54,27 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/addButton"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="dodaj 1" />
+
+        <Button
+            android:id="@+id/removeButton"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="usun 1" />
+
+
+    </LinearLayout>
 
 </LinearLayout>

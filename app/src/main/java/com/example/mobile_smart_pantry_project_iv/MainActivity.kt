@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        adapter = PantryAdapter(this, productList)
+        adapter = PantryAdapter(this, productList){
+            saveProductsFromJsonFile()
+        }
         binding.productListView.adapter = adapter
 
 
@@ -41,32 +43,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        productList.addAll(listOf(
-            Product(1, "Bułka", 5, "Food", "bulka"),
-            Product(2, "Młotek", 2, "Tools", "mlotek"),
-            Product(3, "Zegarek", 1, "Life-Support", "zegarek")
-        )
-        )
-
-
-
-
-        saveProductsFromJsonFile()
         loadProductsFromJsonFile()
-
-
-
     }
 
-    private fun saveProductsFromJsonFile(){
+     fun saveProductsFromJsonFile(){
         val json = Json {prettyPrint = true}
         val jsonString = json.encodeToString(productList)
 
         val file = File(filesDir, "pantry.json")
 
         file.writeText(jsonString)
-
-
     }
 
 

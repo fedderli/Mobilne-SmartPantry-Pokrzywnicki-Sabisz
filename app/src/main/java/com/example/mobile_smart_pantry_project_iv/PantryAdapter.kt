@@ -10,7 +10,8 @@ import com.example.mobile_smart_pantry_project_iv.models.Product
 
 class PantryAdapter(
     private val context: Context,
-    private val products: List<Product>
+    private val products: List<Product>,
+    private val onQuantityChanged:() -> Unit
 ) : ArrayAdapter<Product>(context, 0, products) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -36,6 +37,18 @@ class PantryAdapter(
             "zegarek" -> binding.productImage.setImageResource(R.drawable.zegarek)
             else -> binding.productImage.setImageResource(R.drawable.placeholder)
         }
+
+        binding.addButton.setOnClickListener {
+            product.quantity++
+            binding.productQuantity.text = product.quantity.toString()
+            notifyDataSetChanged()
+
+            onQuantityChanged()
+        }
+
+
+
+
 
 
         return binding.root

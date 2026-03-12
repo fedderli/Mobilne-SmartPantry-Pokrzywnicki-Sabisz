@@ -1,16 +1,23 @@
 [
   {
-      "id": 100,
-      "name": "ryż",
-      "quantity": 3,
-      "unit": "kilogramy",
-      "genre": "suchy prowiant"
+    "uuid": 1,
+    "name": "Bułka",
+    "quantity": 5,
+    "category": "Food",
+    "imageRef": "bulka"
   },
   {
-    "id": 101,
-    "name": "sok porzeczkowy",
-    "quantity": 15,
-    "unit": "litrów",
-    "genre": "napoje"
+    "uuid": 2,
+    "name": "Młotek",
+    "quantity": 2,
+    "category": "Tools",
+    "imageRef": "mlotek"
+  },
+  {
+    "uuid": 3,
+    "name": "Zegarek",
+    "quantity": 1,
+    "category": "Life-Support",
+    "imageRef": "zegarek"
   }
 ]

@@ -41,7 +41,21 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        productList.addAll(listOf(
+            Product(1, "Bułka", 5, "Food", "bulka"),
+            Product(2, "Młotek", 2, "Tools", "mlotek"),
+            Product(3, "Zegarek", 1, "Life-Support", "zegarek")
+        )
+        )
+
+
+
+
+        saveProductsFromJsonFile()
         loadProductsFromJsonFile()
+
+
+
     }
 
     private fun saveProductsFromJsonFile(){
@@ -59,16 +73,24 @@ class MainActivity : AppCompatActivity() {
     private fun loadProductsFromJsonFile() {
         try {
             val file = File(filesDir, "pantry.json")
-            if (!file.exists()) return
+            if (file.exists()) {
+                val jsonString = file.readText()
+                val json = Json { ignoreUnknownKeys = true }
+                val loadedList = json.decodeFromString<List<Product>>(jsonString)
 
-            val jsonString = file.readText()
-            val json = Json {ignoreUnknownKeys = true}
-            val loadedList = json.decodeFromString<List<Product>>(jsonString)
+                productList.clear()
+                productList.addAll(loadedList)
+                adapter.notifyDataSetChanged()
+            }else {
+                val startFile = File("res/raw/pantry.json")
+                val jsonString = startFile.readText()
+                val json = Json { ignoreUnknownKeys = true }
+                val loadedList = json.decodeFromString<List<Product>>(jsonString)
 
-            productList.clear()
-            productList.addAll(loadedList)
-
-            adapter.notifyDataSetChanged()
+                productList.clear()
+                productList.addAll(loadedList)
+                adapter.notifyDataSetChanged()
+            }
         }catch(e: java.lang.Exception){
             Log.e("JSON_ERROR", "Błąd ładowania: ${e.message}")
         }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mobile_smart_pantry_project_iv.databinding.ActivityMainBinding
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        loadProductsFromJsonFile()
+
         adapter = PantryAdapter(this, productList){
             saveProductsFromJsonFile()
         }
@@ -43,7 +46,19 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        loadProductsFromJsonFile()
+
+
+        binding.searchView.setOnQueryTextListener(object: android.widget.SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter(newText ?: "")
+
+                return true
+            }
+        })
     }
 
      fun saveProductsFromJsonFile(){

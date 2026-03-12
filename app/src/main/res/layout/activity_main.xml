@@ -21,7 +21,11 @@
         android:paddingBottom="16dp"
         android:background="#BC4512"
        />
-
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Szukaj Produktu" />
     <ListView
         android:id="@+id/productListView"
         android:layout_width="match_parent"

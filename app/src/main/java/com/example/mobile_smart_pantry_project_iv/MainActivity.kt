@@ -60,6 +60,28 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
+        binding.addToListButton.setOnClickListener {
+            val newName = binding.productNameAdd.text.toString()
+            val newId = System.currentTimeMillis().toInt()
+            val newCategory = binding.productCategoryAdd.text.toString()
+            val newQuantity = binding.productQuantityAdd.text.toString().toInt()
+            val newImageRef = "placeholder"
+
+            val newProduct = Product(newId, newName ,newQuantity ,newCategory , newImageRef)
+
+            productList.add(newProduct)
+
+            adapter.notifyDataSetChanged()
+            saveProductsFromJsonFile()
+
+            binding.productNameAdd.text?.clear()
+            binding.productQuantityAdd.text?.clear()
+            binding.productCategoryAdd.text?.clear()
+        }
+
+
+
         binding.btnAll.setOnClickListener {
             adapter.filter("")
         }
@@ -72,6 +94,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 
      fun saveProductsFromJsonFile(){
         val json = Json {prettyPrint = true}

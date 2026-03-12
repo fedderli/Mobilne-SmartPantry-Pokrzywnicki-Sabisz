@@ -52,6 +52,9 @@ class PantryAdapter(
         if (product.quantity <= 0) {
             binding.removeButton.isEnabled = false
         }
+        if(product.quantity > 0 ){
+            binding.removeButton.isEnabled = true
+        }
 
         binding.addButton.setOnClickListener {
             product.quantity++

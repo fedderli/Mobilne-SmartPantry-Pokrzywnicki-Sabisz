@@ -9,6 +9,39 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+
+
+    <EditText
+        android:id="@+id/productNameAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="nazwa produktu"
+        />
+
+    <EditText
+        android:id="@+id/productQuantityAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ilosc produktu"
+        />
+
+    <EditText
+        android:id="@+id/productCategoryAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="categoria produktu"
+        />
+    <Button
+        android:id="@+id/addToListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dodaj do listy"
+        />
+
+
+
+
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="match_parent"

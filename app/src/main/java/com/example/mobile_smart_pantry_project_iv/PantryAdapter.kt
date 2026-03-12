@@ -38,15 +38,32 @@ class PantryAdapter(
             else -> binding.productImage.setImageResource(R.drawable.placeholder)
         }
 
+        if (product.quantity <= 0 ){
+            binding.removeButton.isEnabled = false
+        }
+
+
         binding.addButton.setOnClickListener {
             product.quantity++
             binding.productQuantity.text = product.quantity.toString()
             notifyDataSetChanged()
+            onQuantityChanged()
+
+            if (product.quantity >0){
+                binding.removeButton.isEnabled = true
+            }
+        }
+
+        binding.removeButton.setOnClickListener {
+
+            if (product.quantity >0) {
+                product.quantity--
+                binding.productQuantity.text = product.quantity.toString()
+                notifyDataSetChanged()
+            }
 
             onQuantityChanged()
         }
-
-
 
 
 

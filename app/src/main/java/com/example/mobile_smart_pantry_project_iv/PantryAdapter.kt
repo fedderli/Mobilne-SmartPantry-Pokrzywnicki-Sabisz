@@ -113,7 +113,12 @@ class PantryAdapter(
                 }
             }
         }
+        notifyDataSetChanged()
+    }
 
+    fun updateData() {
+        filteredProducts.clear()
+        filteredProducts.addAll(products)
         notifyDataSetChanged()
     }
 

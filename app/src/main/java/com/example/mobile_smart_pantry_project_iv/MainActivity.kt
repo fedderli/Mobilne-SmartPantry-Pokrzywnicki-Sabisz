@@ -71,8 +71,9 @@ class MainActivity : AppCompatActivity() {
             val newProduct = Product(newId, newName ,newQuantity ,newCategory , newImageRef)
 
             productList.add(newProduct)
-
             adapter.notifyDataSetChanged()
+            adapter.updateData()
+
             saveProductsFromJsonFile()
 
             binding.productNameAdd.text?.clear()
